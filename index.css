@@ -25,6 +25,7 @@ body {
     position: fixed;
     align-items: center;
     justify-content: center;
+    background-image: url('Stars.svg');
 }
 
 .mainCircleWrraper {
@@ -41,6 +42,7 @@ body {
     position: absolute;
     border-radius: 100%;
     background-color: black;
+    background-image: url('Stars.svg');
 }
 
 .sliceWrraper {
