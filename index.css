@@ -1,0 +1,135 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --skewy: -40.5deg;
+}
+
+body {
+    background-color: black;
+}
+
+.mainCircleWrrapperinner {
+    width: 32vw;
+    height: 32vw;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.mianWrraperOuter {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainCircleWrraper {
+    margin: 1vw;
+    width: 30vw;
+    height: 30vw;
+    border-radius: 50%;
+    position: relative;
+}
+
+.circleWrraper {
+    width: 28vw;
+    height: 28vw;
+    position: absolute;
+    border-radius: 100%;
+    background-color: black;
+}
+
+.sliceWrraper {
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute;
+    border-radius: 100%;
+    transition-duration: 0.5s;
+}
+
+.slice {
+    top: 0;
+    right: 0;
+    width: 15vw;
+    height: 15vw;
+    position: absolute;
+    transform-origin: 0% 100%;
+}
+
+/* .sliceWrraper:nth-child(1):hover {
+    top: -1vw;
+    left: 0.5vw;
+} */
+
+/* .sliceWrraper:nth-child(2):hover {
+    top: -0.4vw;
+    left: 1vw;
+} */
+
+/* .sliceWrraper:nth-child(3):hover {
+    top: 0.5vw;
+    left: 1vw;
+} */
+
+/* .sliceWrraper:nth-child(4):hover {
+    top: 1vw;
+    left: 0vw;
+} */
+
+/* .sliceWrraper:nth-child(5):hover {
+    top: 0.5vw;
+    left: -1vw;
+} */
+
+/* .sliceWrraper:nth-child(6):hover {
+    top: -0.4vw;
+    left: -1vw;
+} */
+
+/* .sliceWrraper:nth-child(7):hover {
+    top: -1vw;
+    left: -0.5vw;
+} */
+
+.sliceWrraper:nth-child(1) .slice {
+    background-color: #F6623E;
+    transform: rotate(0deg) skewY(var(--skewy));
+}
+
+.sliceWrraper:nth-child(2) .slice {
+    background-color: #643EF5;
+    transform: rotate(51.42deg) skewY(var(--skewy));
+}
+
+.sliceWrraper:nth-child(3) .slice {
+    background-color: #FD32DB;
+    transform: rotate(102.84deg) skewY(var(--skewy));
+}
+
+.sliceWrraper:nth-child(4) .slice {
+    background-color: #3AFA8D;
+    transform: rotate(154.26deg) skewY(var(--skewy));
+}
+
+.sliceWrraper:nth-child(5) .slice {
+    background-color: #FC3EF8;
+    transform: rotate(205.68deg) skewY(var(--skewy));
+}
+
+.sliceWrraper:nth-child(6) .slice {
+    background-color: #FF3B69;
+    transform: rotate(257.1deg) skewY(var(--skewy));
+}
+
+.sliceWrraper:nth-child(7) .slice {
+    background-color: #88F741;
+    transform: rotate(308.52deg) skewY(var(--skewy));
+}
