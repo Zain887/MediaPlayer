@@ -10,36 +10,43 @@
     <title>Media Player</title>
 </head>
 
-<body onload="onStartUp()">
+<body>
     <div class="mianWrraperOuter">
         <div class="mainCircleWrrapperinner">
             <div class="mainCircleWrraper">
-                <div class="sliceWrraper" id="sliceWrraper1" onclick='wrraper()'>
-                    <div class="slice"></div>
+                <div class="sliceWrraper" id="sliceWrraper1">
+                    <div class="slice" onclick="handleSliceClick('sliceWrraper1')"></div>
                 </div>
-                <div class="sliceWrraper" id="sliceWrraper2" onclick='wrraper2()'>
-                    <div class="slice"></div>
+                <div class="sliceWrraper" id="sliceWrraper2">
+                    <div class="slice" onclick="handleSliceClick('sliceWrraper2')"></div>
                 </div>
-                <div class="sliceWrraper" id="sliceWrraper3" onclick='wrraper3()'>
-                    <div class="slice"></div>
+                <div class="sliceWrraper" id="sliceWrraper3">
+                    <div class="slice" onclick="handleSliceClick('sliceWrraper3')"></div>
                 </div>
-                <div class="sliceWrraper" id="sliceWrraper4" onclick='wrraper4()'>
-                    <div class="slice"></div>
+                <div class="sliceWrraper" id="sliceWrraper4">
+                    <div class="slice" onclick="handleSliceClick('sliceWrraper4')"></div>
                 </div>
-                <div class="sliceWrraper" id="sliceWrraper5" onclick='wrraper5()'>
-                    <div class="slice"></div>
+                <div class="sliceWrraper" id="sliceWrraper5">
+                    <div class="slice" onclick="handleSliceClick('sliceWrraper5')"></div>
                 </div>
-                <div class="sliceWrraper" id="sliceWrraper6" onclick='wrraper6()'>
-                    <div class="slice"></div>
+                <div class="sliceWrraper" id="sliceWrraper6">
+                    <div class="slice" onclick="handleSliceClick('sliceWrraper6')"></div>
                 </div>
-                <div class="sliceWrraper" id="sliceWrraper7" onclick='wrraper7()'>
-                    <div class="slice"></div>
+                <div class="sliceWrraper" id="sliceWrraper7">
+                    <div class="slice" onclick="handleSliceClick('sliceWrraper7')"></div>
                 </div>
             </div>
         </div>
-        <div class="circleWrraper"></div>
-    </div>
 
+        <div class="circleWrraper">
+            <div class="progress-container">
+                <div class="circle" id="progressCircle">
+                    <canvas id="visualizerCanvas"></canvas>
+                    <div class="inner-circle" id="progressText">00:00 / 00:00</div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="index.js"></script>
 </body>
 

@@ -16,16 +16,20 @@ body {
     height: 32vw;
     overflow: hidden;
     border-radius: 100%;
+    position: relative;
+    margin: auto;
 }
 
 .mianWrraperOuter {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     position: fixed;
     align-items: center;
     justify-content: center;
     background-image: url('Stars.svg');
+    top: 0;
+    left: 0;
 }
 
 .mainCircleWrraper {
@@ -43,6 +47,44 @@ body {
     border-radius: 100%;
     background-color: black;
     background-image: url('Stars.svg');
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    /* So clicks go to slices */
+}
+
+.progress-container {
+    width: 95%;
+    height: 95%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#ffffff 0deg, #222 0deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.1s linear;
+}
+
+.inner-circle {
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    background-image: url('Stars.svg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00ff99;
+    font-size: 1.5vw;
+    font-family: sans-serif;
 }
 
 .sliceWrraper {
@@ -50,11 +92,10 @@ body {
     left: 0;
     width: inherit;
     height: inherit;
-    cursor: pointer;
     overflow: hidden;
     position: absolute;
     border-radius: 100%;
-    transition-duration: 0.5s;
+    transition: transform 0.5s ease;
 }
 
 .slice {
@@ -64,39 +105,150 @@ body {
     height: 15vw;
     position: absolute;
     transform-origin: 0% 100%;
+    cursor: pointer;
 }
 
 .sliceWrraper:nth-child(1) .slice {
-    background-color: #F6623E;
+    background-color: #f6623e;
     transform: rotate(0deg) skewY(var(--skewy));
 }
 
 .sliceWrraper:nth-child(2) .slice {
-    background-color: #643EF5;
+    background-color: #643ef5;
     transform: rotate(51.42deg) skewY(var(--skewy));
 }
 
 .sliceWrraper:nth-child(3) .slice {
-    background-color: #FD32DB;
+    background-color: #fd32db;
     transform: rotate(102.84deg) skewY(var(--skewy));
 }
 
 .sliceWrraper:nth-child(4) .slice {
-    background-color: #3AFA8D;
+    background-color: #3afa8d;
     transform: rotate(154.26deg) skewY(var(--skewy));
 }
 
 .sliceWrraper:nth-child(5) .slice {
-    background-color: #FC3EF8;
+    background-color: #fc3ef8;
     transform: rotate(205.68deg) skewY(var(--skewy));
 }
 
 .sliceWrraper:nth-child(6) .slice {
-    background-color: #FF3B69;
+    background-color: #ff3b69;
     transform: rotate(257.1deg) skewY(var(--skewy));
 }
 
 .sliceWrraper:nth-child(7) .slice {
-    background-color: #88F741;
+    background-color: #88f741;
     transform: rotate(308.52deg) skewY(var(--skewy));
+}
+
+/* Modal Overlay */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    display: none;
+}
+
+/* Modal Container */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #111;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    z-index: 20;
+    width: 300px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 0 10px #00ff99;
+}
+
+/* Show modal */
+.modal.active,
+#overlay.active {
+    display: flex;
+}
+
+/* Modal Header */
+.modal h3 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+}
+
+/* Close Button */
+.close-btn {
+    align-self: flex-end;
+    color: #ccc;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* Song List Styles */
+.song-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.song-list li {
+    background: #333;
+    padding: 8px;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.song-list li:hover {
+    background: #555;
+}
+
+/* File Input */
+.modal input[type="file"] {
+    background: #222;
+    border: 1px solid #444;
+    padding: 5px;
+    color: #0f0;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.active-slice {
+    filter: drop-shadow(0 0 10px #00ff99);
+    transform: scale(1.05);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#progressCircle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#222 0deg, #222 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#visualizerCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    filter: drop-shadow(0 0 8px #00ff99);
 }
